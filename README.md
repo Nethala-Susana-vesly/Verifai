@@ -1,4 +1,4 @@
-# ResearchPilot — Autonomous Research & Report Agent
+# Verifai — Autonomous Research & Report Agent
 
 Give it a topic. It plans sub-questions, searches the live web, cross-checks
 facts across sources, writes a structured report, reviews its own draft for
