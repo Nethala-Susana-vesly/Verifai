@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResearchPilot — Autonomous Research Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="masthead-mark">RP</div>
+      <div class="masthead-text">
+        <h1>ResearchPilot</h1>
+        <p>An autonomous agent that researches, cross-checks, and writes a cited report — on its own.</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="panel form-panel">
+        <h2>New research run</h2>
+        <label for="topic">Topic</label>
+        <input id="topic" type="text" maxlength="300" placeholder="e.g. Impact of RAG systems on enterprise search" />
+
+        <label for="constraints">Focus / audience <span class="optional">(optional)</span></label>
+        <input id="constraints" type="text" maxlength="200" placeholder="e.g. for a non-technical business audience" />
+
+        <button id="startBtn">Run agent</button>
+        <p id="formError" class="form-error" hidden></p>
+
+        <div class="history">
+          <h3>Past reports</h3>
+          <ul id="historyList"><li class="muted">No reports yet.</li></ul>
+        </div>
+      </section>
+
+      <section class="panel log-panel">
+        <h2>Agent log <span id="statusPill" class="pill idle">idle</span></h2>
+        <div id="log" class="log" aria-live="polite">
+          <p class="muted">Run the agent to see it think, step by step, in real time.</p>
+        </div>
+
+        <div id="resultBox" class="result-box" hidden>
+          <h3>Report ready</h3>
+          <p id="resultPreview"></p>
+          <a id="downloadLink" href="#" class="download-btn">Download PDF report</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

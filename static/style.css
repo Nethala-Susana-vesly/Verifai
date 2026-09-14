@@ -1,0 +1,238 @@
+:root {
+  --paper: #F6F3EC;
+  --paper-raised: #FCFAF5;
+  --ink: #232320;
+  --ink-soft: #5B584F;
+  --hairline: #D9D3C4;
+  --teal: #2F6F62;
+  --teal-deep: #1F4B41;
+  --rust: #B4592A;
+  --font-head: "Lora", Georgia, serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.masthead {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.masthead-mark {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 20px;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border: 1px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+
+.masthead-text h1 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 28px;
+  margin: 0 0 6px;
+}
+
+.masthead-text p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  font-size: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
+}
+
+@media (max-width: 800px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--hairline);
+  padding: 24px;
+}
+
+.panel h2 {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 16px 0 6px;
+}
+
+label:first-of-type { margin-top: 0; }
+
+.optional { color: #8C887C; font-weight: 400; }
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--hairline);
+  background: var(--paper);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+button#startBtn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button#startBtn:hover { background: var(--teal-deep); }
+button#startBtn:disabled { background: #A9A296; cursor: not-allowed; }
+
+.form-error {
+  color: var(--rust);
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.history {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+}
+
+.history h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin: 0 0 10px;
+}
+
+.history ul { list-style: none; margin: 0; padding: 0; }
+
+.history li {
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.history li:last-child { border-bottom: none; }
+
+.history a { color: var(--teal-deep); text-decoration: none; }
+.history a:hover { text-decoration: underline; }
+
+.muted { color: #8C887C; font-size: 13px; }
+
+.pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 9px;
+  border: 1px solid var(--hairline);
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin-left: auto;
+}
+
+.pill.running { color: var(--teal-deep); border-color: var(--teal); }
+.pill.done { color: var(--teal-deep); border-color: var(--teal); }
+.pill.error { color: var(--rust); border-color: var(--rust); }
+
+.log-panel h2 { justify-content: space-between; }
+
+.log {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: #FFFFFF;
+  border: 1px solid var(--hairline);
+  padding: 16px;
+  min-height: 280px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.log p {
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.log p.step-title {
+  color: var(--teal-deep);
+  font-weight: 500;
+}
+
+.log p.error-line { color: var(--rust); }
+
+.result-box {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid var(--teal);
+  background: #EFF5F2;
+}
+
+.result-box h3 {
+  font-family: var(--font-head);
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.result-box p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+}
+
+.download-btn {
+  display: inline-block;
+  background: var(--teal-deep);
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+}
+
+.download-btn:hover { background: var(--teal); }
